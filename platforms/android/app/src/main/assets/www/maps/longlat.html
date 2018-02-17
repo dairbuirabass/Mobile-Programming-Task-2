@@ -8,17 +8,24 @@
   <body>
     <div class="text">
       <h1>Enter the place name to get geocoding results</h1>
-        <label>Place name:</label>
-        <input id="address" type="text" name="address" placeholder="Enter the address...">
-        <br><br>
-        <button id="submitQuery">Submit</button>
-      </form>
+      <br>
+      <label>Place name:</label>
+      <br><br>
+      <input id="address" type="text" name="address" placeholder="Enter the address...">
+      <br><br>
+      <button id="submitQuery">Submit</button>
     </div>
 
     <div id ="resultsText" style="display: none" class="text">
-      <h1><strong>Formatted address: <span id="formattedAddressField"></span></strong></h1>
+      <hr>
+      <h1><strong>Formatted address: </strong><span id="formattedAddressField"></span></h1>
       <h2><strong>Longitude: </strong><span id="longField"></span></h2>
       <h2><strong>Latitude: </strong><span id="latField"></span></h2>
     </div>
+
+    <div id="map"></div>
   </body>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0vApjUjq1RfkFxr3_p85VdGU3b6u7QM">
+  </script>
 </html>

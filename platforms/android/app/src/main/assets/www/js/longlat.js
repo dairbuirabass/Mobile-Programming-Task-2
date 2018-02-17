@@ -24,6 +24,22 @@ function printLongLat(response) {
   document.getElementById("longField").innerHTML = response.results[0].geometry.location.lng;
   document.getElementById("latField").innerHTML = response.results[0].geometry.location.lat;
   document.getElementById("resultsText").style.display = "block";
+
+  initMap();
+}
+
+function initMap() {
+  var longField = Number(document.getElementById('longField').textContent);
+  var latField  = Number(document.getElementById('latField').textContent);
+  var coords = { lat: latField, lng: longField };
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: coords
+  });
+  var marker = new google.maps.Marker({
+    position: coords,
+    map: map
+  });
 }
 
 function docLoaded() {

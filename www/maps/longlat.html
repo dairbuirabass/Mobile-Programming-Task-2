@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <script type="text/javascript" src="../js/longlat.js"></script>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <div class="text">
+      <h1>Enter the place name to get geocoding results</h1>
+        <label>Place name:</label>
+        <input id="address" type="text" name="address" placeholder="Enter the address...">
+        <br><br>
+        <button id="submitQuery">Submit</button>
+      </form>
+    </div>
+
+    <div id ="resultsText" style="display: none" class="text">
+      <h1><strong>Formatted address: <span id="formattedAddressField"></span></strong></h1>
+      <h2><strong>Longitude: </strong><span id="longField"></span></h2>
+      <h2><strong>Latitude: </strong><span id="latField"></span></h2>
+    </div>
+  </body>
+</html>

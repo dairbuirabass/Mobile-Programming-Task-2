@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <script type="text/javascript" src="../js/gpsloc.js"></script>
+    <script type="text/javascript" src="../js/xmlhttpRequest.js"></script>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <div class="text">
+      <h1>If GPS request was handled successfully, data should be displayed</h1>
+      <br>
+    </div>
+
+    <div id ="resultsText" style="display: none" class="text">
+      <hr>
+      <h1><strong>Formatted address: </strong><span id="formattedAddressField"></span></h1>
+      <h2><strong>Longitude: </strong><span id="longField"></span></h2>
+      <h2><strong>Latitude: </strong><span id="latField"></span></h2>
+    </div>
+
+    <div id="map"></div>
+  </body>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0vApjUjq1RfkFxr3_p85VdGU3b6u7QM">
+  </script>
+</html>

@@ -7,18 +7,6 @@ function getQuery() {
       httpGetAsync(requestUrl, printLongLat);
 }
 
-function httpGetAsync(url, callback) {
-  var xmlHttp = new XMLHttpRequest();
-      xmlHttp.onreadystatechange = function() {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-          var response = JSON.parse(xmlHttp.responseText);
-          callback(response);
-        }
-      }
-      xmlHttp.open("GET", url, true);
-      xmlHttp.send(null);
-    }
-
 function printLongLat(response) {
   document.getElementById("formattedAddressField").innerHTML = response.results[0].formatted_address;
   document.getElementById("longField").innerHTML = response.results[0].geometry.location.lng;

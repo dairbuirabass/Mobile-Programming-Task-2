@@ -2,7 +2,6 @@ window.addEventListener('load', docLoaded);
 
 function docLoaded() {
   navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
-  console.log("DocLoaded");
 }
 
 var options = {

@@ -34,14 +34,18 @@ function setDest(response) {
 }
 
 function setDist(response) {
-  document.getElementById('distanceField').innerHTML = response.rows[0].elements[0].distance.value;
+  distance = response.rows[0].elements[0].distance.value;
+  distance = distance / 1000;
+  distance.toLocaleString();
+  distance = distance += " km";
+  document.getElementById('distanceField').innerHTML =distance;
   initMap();
   document.getElementById("resultsArea").style.display = "block";
 }
 
 function rad(x) {
   return x * Math.PI / 180;
-};
+}
 
 function getDistance(p1, p2) {
   var R = 6378137;
@@ -53,20 +57,20 @@ function getDistance(p1, p2) {
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   var d = R * c;
   return d; // returns the distance in meter
-};
+}
 
 function initMap() {
   var origCoords = { lat: origLat, lng: origLong };
   var destCoords = { lat: destLat, lng: destLong };
 
-  var calculatedDistance = Math.floor(getDistance(origCoords, destCoords));
+  var calculatedDistance = Math.floor(getDistance(origCoords, destCoords)) / 1000;
 
   calculatedDistance.toString();
-  calculatedDistance += " meters";
+  calculatedDistance += " km";
   document.getElementById('displacementField').innerHTML = calculatedDistance;
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 2,
+    zoom: 3,
     center: origCoords
   });
   var origMarker = new google.maps.Marker({
@@ -89,6 +93,19 @@ function initMap() {
     strokeWeight: 2,
     map: map
   });
+}
+
+function turnToKms(str) {
+  var i = str.length-1 ;
+  var r = 0;
+  while (i >= 0) {
+    if (r == 3) {
+      str = str.substring(0, i) + "." + str.substring(str.length-1, str.length) ;
+    }
+    i --;
+    r ++;
+  }
+  return str;
 }
 
 function docLoaded() {

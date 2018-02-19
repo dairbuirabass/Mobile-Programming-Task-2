@@ -1,7 +1,7 @@
 window.addEventListener('load', docLoaded);
 
 // Global variables to get http requests
-var distance, geoOrig, geoDist;
+var origLat, origLong, destLat, destLong;
 
 function getQuery() {
   var orig = document.getElementById("origin").value;
@@ -19,15 +19,18 @@ function getQuery() {
 
 function setOrig(response) {
   document.getElementById('originFromattedAddress').innerHTML = response.results[0].formatted_address;
-  document.getElementById('originLongField').innerHTML = response.results[0].geometry.location.lng;
-  document.getElementById('originLatField').innerHTML = response.results[0].geometry.location.lat;
-
+  origLong = response.results[0].geometry.location.lng;
+  origLat = response.results[0].geometry.location.lat;
+  document.getElementById('originLongField').innerHTML = origLong;
+  document.getElementById('originLatField').innerHTML = origLat;
 }
 
 function setDest(response) {
   document.getElementById('destinationFromattedAddress').innerHTML = response.results[0].formatted_address;
-  document.getElementById('destinationLongField').innerHTML = response.results[0].geometry.location.lng;
-  document.getElementById('destinationLatField').innerHTML = response.results[0].geometry.location.lat;
+  destLong = response.results[0].geometry.location.lng;
+  destLat = response.results[0].geometry.location.lat;
+  document.getElementById('destinationLongField').innerHTML = destLong;
+  document.getElementById('destinationLatField').innerHTML = destLat;
 }
 
 function setDist(response) {
@@ -36,7 +39,7 @@ function setDist(response) {
   document.getElementById("resultsArea").style.display = "block";
 }
 
-var rad = function(x) {
+function rad(x) {
   return x * Math.PI / 180;
 };
 
@@ -53,23 +56,17 @@ function getDistance(p1, p2) {
 };
 
 function initMap() {
-  var origLongField = Number(document.getElementById('originLongField').textContent);
-  var origLatField  = Number(document.getElementById('originLatField').textContent);
-  var destLongField = Number(document.getElementById('destinationLongField').textContent);
-  var destLatField  = Number(document.getElementById('destinationLatField').textContent);
+  var origCoords = { lat: origLat, lng: origLong };
+  var destCoords = { lat: destLat, lng: destLong };
 
-  var origCoords = { lat: origLatField, lng: origLongField };
-  var destCoords = { lat: destLatField, lng: destLongField };
+  var calculatedDistance = Math.floor(getDistance(origCoords, destCoords));
 
-  var calculatedDistance = getDistance(origCoords, destCoords);
-  console.log(calculatedDistance);
   calculatedDistance.toString();
   calculatedDistance += " meters";
-
   document.getElementById('displacementField').innerHTML = calculatedDistance;
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
+    zoom: 2,
     center: origCoords
   });
   var origMarker = new google.maps.Marker({

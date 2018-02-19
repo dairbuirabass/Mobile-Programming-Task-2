@@ -1,12 +1,5 @@
 window.addEventListener('load', docLoaded);
 
-function getQuery() {
-  var address = document.getElementById("address").value;
-      address = address.split(' ').join('+');
-  var requestUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyBt3uKBhBC3dEBbvgOGkXcKzB8fQilcJDA" ;
-      httpGetAsync(requestUrl, printLongLat);
-}
-
 function docLoaded() {
   navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
   console.log("DocLoaded");
@@ -21,7 +14,7 @@ var options = {
 function onSuccess(position) {
   document.getElementById("longField").innerHTML = position.coords.longitude;
   document.getElementById("latField").innerHTML = position.coords.latitude;
-  document.getElementById("resultsText").style.display = "block";
+  document.getElementById("resultsArea").style.display = "block";
 
   var coords = {
     lat: position.coords.latitude,

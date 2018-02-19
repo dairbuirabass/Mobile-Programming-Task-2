@@ -11,7 +11,7 @@ function printLongLat(response) {
   document.getElementById("formattedAddressField").innerHTML = response.results[0].formatted_address;
   document.getElementById("longField").innerHTML = response.results[0].geometry.location.lng;
   document.getElementById("latField").innerHTML = response.results[0].geometry.location.lat;
-  document.getElementById("resultsText").style.display = "block";
+  document.getElementById("resultsArea").style.display = "block";
 
   initMap();
 }

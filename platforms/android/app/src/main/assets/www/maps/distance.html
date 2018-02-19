@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <script type="text/javascript" src="../js/distance.js"></script>
+    <script type="text/javascript" src="../js/xmlhttpRequest.js"></script>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <div class="text">
+      <h1>Enter the place name to get geocoding results</h1>
+      <label>Origin name:</label>
+      <input id="origin" type="text" name="origin" placeholder="Enter the origin address...">
+      <br>
+      <label>Destination name:</label>
+      <input id="destination" type="text" name="destination" placeholder="Enter the destination address...">
+      <br><br>
+      <button id="submitQuery">Submit</button>
+    </div>
+
+    <div id="resultsArea" style="display: none" class="text">
+      <h1><strong>Driving distance: </strong><span id="distanceField"></span></h1>
+      <h1><strong>Displacement: </strong><span id="displacementField"></span></h1>
+      <h2><strong>Origin: </strong><span id="originFromattedAddress"></span></h2>
+      <h2><strong>Destination: </strong><span id="destinationFromattedAddress"></span></h2>
+      <h4>
+        <strong>Longitude: </strong><span id="originLongField"></span>
+        <strong>Latitude: </strong><span id="originLatField"></span>
+      </h4>
+      <h4>
+        <strong>Longitude: </strong><span id="destinationLongField"></span>
+        <strong>Latitude: </strong><span id="destinationLatField"></span>
+      </h4>
+      <br><br>
+      <div id="map"></div>
+    </div>
+
+  </body>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0vApjUjq1RfkFxr3_p85VdGU3b6u7QM">
+  </script>
+</html>

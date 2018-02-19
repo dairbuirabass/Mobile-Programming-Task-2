@@ -3,7 +3,7 @@ function httpGetAsync(url, callback) {
       xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
           var response = JSON.parse(xmlHttp.responseText);
-          callback(response);
+              callback(response);
         }
       }
       xmlHttp.open("GET", url, true);

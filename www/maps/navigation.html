@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+      }
+
+      #right-panel {
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        /* padding-left: 10px; */
+        width: 100%;
+      }
+
+      #right-panel select, #right-panel input {
+        font-size: 15px;
+      }
+
+      #right-panel select {
+        width: 100%;
+      }
+
+      #right-panel i {
+        font-size: 12px;
+      }
+      #right-panel {
+        height: 100%;
+        float: left;
+        width: 390px;
+        overflow: auto;
+      }
+    </style>
+    <script type="text/javascript" src="../js/navigation.js"></script>
+    <script type="text/javascript" src="../js/xmlhttpRequest.js"></script>
+    <title>Navigation Instructions</title>
+  </head>
+  <body>
+    <div class="text">
+      <h1>Enter the origin and destination points to get navigation instructions</h1>
+      <br>
+      <label>Origin name:</label>
+      <br><br>
+      <input id="origin" type="text" name="origin" placeholder="Enter the origin address...">
+      <br><br>
+      <label>Destination name:</label>
+      <br><br>
+      <input id="destination" type="text" name="destination" placeholder="Enter the destination address...">
+      <br><br>
+      <select id="travelModeSelect" name="mode">
+        <option selected value="Driving">Car</option>
+        <option value="Walking">Walking</option>
+        <option value="Bicycling">Bicycle</option>
+        <option value="Transit">Transit</option>
+      </select>
+      <button id="submitQuery">Submit</button>
+    </div>
+
+    <div id="resultsArea" style="display: none" class="text">
+      <hr>
+      <h1><strong>Mode: </strong><span id="travelModeField"></span></h1>
+      <h2><strong>Origin: </strong><span id="orig"></span></h2>
+      <h2><strong>Destination: </strong><span id="dest"></span></h2>
+      <div id="map"></div>
+      <div id="right-panel"></div>
+    </div>
+  </body>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0vApjUjq1RfkFxr3_p85VdGU3b6u7QM">
+  </script>
+</html>

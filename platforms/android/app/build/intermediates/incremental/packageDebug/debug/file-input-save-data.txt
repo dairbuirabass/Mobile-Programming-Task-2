@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Feb 22 23:37:35 EET 2018
+#Thu Feb 22 23:53:21 EET 2018
 5.base=C\:\\Users\\Dairock\\Documents\\Cordova\\Task-2\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 42.base=C\:\\Users\\Dairock\\Documents\\Cordova\\Task-2\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 32.set=ANDROID_RESOURCE
